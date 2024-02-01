@@ -84,71 +84,71 @@
 
 
 
-import React, { useState } from 'react';
-import {
-  Button,
-  TextField,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemSecondaryAction,
-  IconButton,
-  Typography,
-  Container,
-} from '@material-ui/core';
-import { Delete } from '@material-ui/icons';
+// import React, { useState } from 'react';
+// import {
+//   Button,
+//   TextField,
+//   List,
+//   ListItem,
+//   ListItemText,
+//   ListItemSecondaryAction,
+//   IconButton,
+//   Typography,
+//   Container,
+// } from '@material-ui/core';
+// import { Delete } from '@material-ui/icons';
 
-export const Practice = () => {
-  const [tasks, setTasks] = useState([]);
-  const [newTask, setNewTask] = useState('');
+// export const Practice = () => {
+//   const [tasks, setTasks] = useState([]);
+//   const [newTask, setNewTask] = useState('');
 
-  const addTask = () => {
-    if (newTask.trim()) {
-      setTasks([...tasks, { id: Date.now(), text: newTask }]);
-      setNewTask('');
-    }
-  };
+//   const addTask = () => {
+//     if (newTask.trim()) {
+//       setTasks([...tasks, { id: Date.now(), text: newTask }]);
+//       setNewTask('');
+//     }
+//   };
 
-  const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
-  };
+//   const deleteTask = (id) => {
+//     setTasks(tasks.filter((task) => task.id !== id));
+//   };
 
-  return (
-    <Container maxWidth="sm" style={{ marginTop: '20px' }}>
-      <TextField
-        label="Enter task"
-        variant="outlined"
-        fullWidth
-        value={newTask}
-        onChange={(e) => setNewTask(e.target.value)}
-      />
-      <Button
-        variant="contained"
-        color="primary"
-        style={{ marginTop: '10px' }}
-        onClick={addTask}
-      >
-        Add Task
-      </Button>
-      <List style={{ marginTop: '20px' }}>
-        {tasks.map((task) => (
-          <ListItem key={task.id}>
-            <ListItemText primary={task.text} />
-            <ListItemSecondaryAction>
-              <IconButton edge="end" aria-label="delete" onClick={() => deleteTask(task.id)}>
-                <Delete />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
-        ))}
-      </List>
-      {tasks.length === 0 && (
-        <Typography variant="h6" style={{ marginTop: '20px' }}>
-          No tasks available.
-        </Typography>
-      )}
-    </Container>
-  );
-};
+//   return (
+//     <Container maxWidth="sm" style={{ marginTop: '20px' }}>
+//       <TextField
+//         label="Enter task"
+//         variant="outlined"
+//         fullWidth
+//         value={newTask}
+//         onChange={(e) => setNewTask(e.target.value)}
+//       />
+//       <Button
+//         variant="contained"
+//         color="primary"
+//         style={{ marginTop: '10px' }}
+//         onClick={addTask}
+//       >
+//         Add Task
+//       </Button>
+//       <List style={{ marginTop: '20px' }}>
+//         {tasks.map((task) => (
+//           <ListItem key={task.id}>
+//             <ListItemText primary={task.text} />
+//             <ListItemSecondaryAction>
+//               <IconButton edge="end" aria-label="delete" onClick={() => deleteTask(task.id)}>
+//                 <Delete />
+//               </IconButton>
+//             </ListItemSecondaryAction>
+//           </ListItem>
+//         ))}
+//       </List>
+//       {tasks.length === 0 && (
+//         <Typography variant="h6" style={{ marginTop: '20px' }}>
+//           No tasks available.
+//         </Typography>
+//       )}
+//     </Container>
+//   );
+// };
 
-// export default TaskForm;
+// // export default TaskForm;
