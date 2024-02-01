@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import TaskList from "./components/TaskList";
+import { Button, Container } from "@mui/material";
+import Movie from "./components/Movie";
 
-function App() {
+
+const App = () => {
+  const [showTaskList, setShowTaskList] = useState(false);
+  const [showMovieWebsite, setShowMovieWebsite] = useState(false);
+
+  const handleTaskList = () => {
+    setShowTaskList((prev) => !prev);
+    setShowMovieWebsite(false);
+  };
+
+  const handleMovieWebsite = () => {
+    setShowTaskList(false);
+    setShowMovieWebsite((prev) => !prev);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Container>
+      <div className="buttons">
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleTaskList}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Show ToDoList
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={handleMovieWebsite}
+        >
+          Show Movie Website
+        </Button>
+      </div>
+      <div className="views">
+        {showTaskList && <TaskList />}
+        {showMovieWebsite && <Movie />}
+      </div>
+    </Container>
   );
-}
+};
 
 export default App;
