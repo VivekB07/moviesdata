@@ -21,10 +21,11 @@ function Movie() {
   useEffect(() => {
     const fetchMovies = async (page) => {
       try {
-        const apiKey = process.env.REACT_APP_API_KEY;
+        const apiKey = process.env.REACT_APP_VERCEL_ENV;
+        console.log(apiKey)
         const startDate = "2023-12-01";
         const endDate = "2023-12-31";
-        const url = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&primary_release_date.gte=${startDate}&primary_release_date.lte=${endDate}&page=${page}&include_adult=false`;
+        const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&primary_release_date.gte=${startDate}&primary_release_date.lte=${endDate}&page=${page}&include_adult=false`;
 
         const response = await fetch(url);
         const data = await response.json();
