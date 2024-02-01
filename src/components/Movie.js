@@ -30,7 +30,8 @@ function Movie() {
         const data = await response.json();
 
         if (data.results) {
-          setMovies(data.results);
+          const limitedMovies = data.results.slice(0, 18);
+          setMovies(limitedMovies);
           setTotalPages(data.total_pages);
         } else {
           setError("No movies found!");

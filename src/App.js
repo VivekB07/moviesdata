@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-import TaskList from "./components/TaskList";
 import { Button, Container } from "@mui/material";
+import TaskList from "./components/TaskList";
 import Movie from "./components/Movie";
 
 
@@ -27,14 +27,14 @@ const App = () => {
           color="primary"
           onClick={handleTaskList}
         >
-          Show ToDoList
+          Show Task 1
         </Button>
         <Button
           variant="contained"
           color="secondary"
           onClick={handleMovieWebsite}
         >
-          Show Movie Website
+          Show Task 3
         </Button>
       </div>
       <div className="views">
